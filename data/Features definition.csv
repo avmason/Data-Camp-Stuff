@@ -1,0 +1,11 @@
+﻿Features ,Definition
+Country name,Name of the country
+Freedom to make life choices,"The average of the results received on the question ""Are you satisfied or dissatisfied with your freedom to choose what you do with your life?”(0=no 1=yes) in an area"
+Generosity,"The average response to the question ""Have you donated money to charity in the past month"""
+Healthy life expectancy,Average number of years that a person can expect to live in full health
+Ladder score,"The countries average ""happiness"" score"
+Ladder Score in Dystopia ,"The precentage of happiness in a country compare to the ""world saddest country""(a dystopia where all the given column values are low)"
+Logged GDP per capita,The Gross domestic product-per-capita time series from 2019 to 2020.
+Perceptions of Corruption,"The measure is the national average of the survey responses to two questions in the GWP: “Is corruption widespread throughout the government or not” and  “Is corruption widespread within businesses or not?”"
+Regional indicator,The region of the country
+Social support, Assitance provided by the community to an individual
