@@ -61,7 +61,7 @@ fig.update_layout(title = "Regional Map")
 fig.update_layout(width=1000,height=1000)
 st.plotly_chart(fig)
 
-st.header('Scatter Plot')
+st.header('Scatter Plots')
 
 # Healthy Life Expectancy vs. Ladder Score
 st.write('Healthy Life Expectancy vs. Ladder Score')
