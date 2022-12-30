@@ -13,7 +13,7 @@ pd.set_option('display.max_colwidth', None)
 
 st.title('Data Science World Happiness EDA')
 st.header('Target')
-st.write('The target of this EDA is to draw conclusions about the factors that lead to hapiness in various regions across the globe. The information and visualizations provided are based on the "World Hapiness DataSet" as of 2021.  This will be done through the use of comprehensive charts, tables, and maps that will paint an overall picture of the given dataset.')
+st.write('The target of this EDA is to draw conclusions about the factors that lead to hapiness in various regions across the globe. The information and visualizations provided are based on the "World Hapiness Data Set" as of 2021.  This will be done through the use of comprehensive charts, tables, and maps that will paint an overall picture of the given dataset.')
 # Data Exploration
 
 
@@ -156,7 +156,7 @@ st.plotly_chart(fig)
 # healthy life expectancy by region
 fig = px.bar(avg_wh21, x='Regional indicator', y='Healthy life expectancy', color = 'Regional indicator', title='Healthy Life Expectancy by Region')
 st.write('Average Healthy Life Expectancy by Region')
-st.write('In general, the average healthy life expectancy for all the regions provided in this dataset is in the approximate range of 50 to 80 years. The maximum average regional life expectancy is  about 73 years, in the Western Europe region. And the minimum average regional life expectancy is about 56 years, in sub-Saharan Africa.')
+st.write('In general, the average healthy life expectancy for all the regions provided in this data set is in the approximate range of 50 to 80 years. The maximum average regional life expectancy is  about 73 years, in the Western Europe region. And the minimum average regional life expectancy is about 56 years, in sub-Saharan Africa.')
 st.plotly_chart(fig)
 
 # generosity by region with standard deviation & errors
