@@ -230,7 +230,7 @@ st.write('Violin Plot corruption and Regional Indicator')
 st.plotly_chart(fig)
 
 fig = px.violin(wh_df21, x='Regional indicator', y="Social support", title="Regional indicator vs. Social support")
-st.write('*Hi*')
+st.subheader('Hi')
 st.write('There is not a significant difference in the trend shown here ')
 st.write('Violin Plot Regional Indicator vs. Social Support')
 st.plotly_chart(fig)
