@@ -143,13 +143,13 @@ fig.add_trace(go.Bar(
     error_y=dict(type='data', array=std_wh21['Logged GDP per capita']),
     marker_color = px.colors.qualitative.Plotly
 ))
-st.write('Average Logged GDP per Capita by Region with Standard Deviation & Errors')
+st.subheader('Average Logged GDP per Capita by Region with Standard Deviation & Errors')
 st.write('The following error bar chart shows in which range the majority of the average logged GDP per capita by region is. For example, North America and ANZ has the smallest variation of 0.16 among all the regions, with 68% of the data logged GDP being around 10.8, while Southeast Asia has the largest variation of 0.97, with 68% of its data logged GDP being around 9.4.')
 st.plotly_chart(fig)
 
 # healthy life expectancy by region
 fig = px.bar(avg_wh21, x='Regional indicator', y='Healthy life expectancy', color = 'Regional indicator', title='Healthy Life Expectancy by Region')
-st.write('Average Healthy Life Expectancy by Region')
+st.subheader('Average Healthy Life Expectancy by Region')
 st.write('In general, the average healthy life expectancy for all the regions provided in this data set is in the approximate range of 50 to 80 years. The maximum average regional life expectancy is  about 73 years, in the Western Europe region. And the minimum average regional life expectancy is about 56 years, in sub-Saharan Africa.')
 st.plotly_chart(fig)
 
@@ -163,7 +163,7 @@ fig.add_trace(go.Bar(
     marker_color = px.colors.qualitative.Plotly
 ))
 fig.update_layout(barmode='group')
-st.write('Average Generosity by Region with Standard Deviation & Errors')
+st.subheader('Average Generosity by Region with Standard Deviation & Errors')
 st.write('The average generosity can vary from a bit below 0 to a bit above zero for each region. However, the variety within each region, except from North America, is very different, as majority of the data is way above 0. The majority of the data from all other regions has a greater range that extends to both negative and positive generosity.')
 st.plotly_chart(fig)
 
@@ -171,28 +171,31 @@ st.header('Pie Charts')
 #countries per regional indicator
 count_wh_df21 = wh_df21.groupby('Regional indicator', as_index=False).count()
 fig = px.pie(count_wh_df21, values='Country name', names= 'Regional indicator', title='Countries per Regional Indicator')
-st.write('Countries per Regional Indicator')
+st.subheader('Countries per Regional Indicator')
 st.write('It is illustrated that Sub-Saharan Africa has the most countries per region, and North America and ANZ have the least countries per region.')
 st.plotly_chart(fig)
 
 #pie chart for average ladder score per region
 fig = px.pie(gb_wh21, values='Social support', names= 'Regional indicator', title='Average Social Support per Region')
-st.write('Average Social Support per Region')
+st.subheader('Average Social Support per Region')
 st.write('It is demonstrated that North America and ANZ and Western Europe have the highest levels of social support, whereas South Asia and Sub-Saharan Africa have the lowest levels of social support compared to other regions.')
 st.plotly_chart(fig)
 
 st.header('World Map')
+st.write('To continue our EDA visualizations, we provided the distribution of the given Ladder score in estimated countries, with the conclusion that North America and Western Europe are among the happiest regions, followed by Latin America.')
 fig = px.choropleth(wh_df21,locations = 'Country name',
                    locationmode='country names', color= 'Ladder score')
 fig.update_layout(title = "World Happiness")
-st.write('To continue our EDA visualizations, we provided the distribution of the given Ladder score in estimated countries, with the conclusion that North America and Western Europe are among the happiest regions, followed by Latin America.')
+st.subheader('World Happiness Map')
+st.write('Countries with the highest ladder score are generally found on three continents: North America, Europe, and ANZ (Australia-New Zealand). Countries with the lowest ladder score are generally found on Africa, while countries with a moderate ladder score are generally found on Asia and South Africa.')
 fig.update_layout(width=1000,height=800)
 st.plotly_chart(fig)
 
 fig = px.scatter_geo(wh_df21,locations = 'Country name', size = 'Ladder score',
                    locationmode='country names', color= 'Social support')
 fig.update_layout(title = "Social Support")
-st.write('Countries with the highest ladder score are generally found on three continents: North America, Europe, and ANZ (Australia-New Zealand). Countries with the lowest ladder score are generally found on Africa, while countries with a moderate ladder score are generally found on Asia and South Africa.')
+st.subheader('Social Support World Map')
+st.write('Countries with the highest social support are generally found on three continents: Europe, North America, and South America but are also present on Asia and ANZ. Countries with highest social support may also have highest ladder scores.')
 fig.update_layout(width=1000,height=800)
 st.plotly_chart(fig)
 
@@ -200,31 +203,34 @@ fig = px.scatter_geo(wh_df21,locations = 'Country name', size = 'Ladder score',
                    locationmode='country names', color= 'Logged GDP per capita')
 fig.update_layout(title = "Logged GDP per capita")
 fig.update_layout(width=1000,height=800)
-st.write('Countries with the highest social support are generally found on three continents: Europe, North America, and South America but are also present on Asia and ANZ. Countries with highest social support may also have highest ladder scores.')
+st.subheader('Logged GDP World Map')
+st.write('Europe is a leader in the highest GDP per capita, signifying high economic stability. The Middle East, ANZ, and Eastern Asia are also notably wealthy regions, whereas Africa primarly has the lowest GDP per capita. Regions with more established GDP levels are likelier to have improved life expectancies and quality of life, effectuating higher ladder scores.')
 
 st.plotly_chart(fig)
 fig = px.scatter_geo(wh_df21,locations = 'Country name', size = 'Ladder score',
                    locationmode='country names', color= 'Healthy life expectancy')
 fig.update_layout(width=1000,height=800)
 fig.update_layout(title = "Healthy life expectancy")
-st.write('Europe is a leader in the highest GDP per capita, signifying high economic stability. The Middle East, ANZ, and Eastern Asia are also notably wealthy regions, whereas Africa primarly has the lowest GDP per capita. Regions with more established GDP levels are likelier to have improved life expectancies and quality of life, effectuating higher ladder scores.')
-st.plotly_chart(fig)
+st.subheader('Healthy Life Expectancy')
 st.write ('Western Europe, Eastern Asia, and ANZ have the highest healthy life expectancies. Conversely, African nation have the lowest life expectancies. Such results could be due to high economic development, which generates advancements towards modern medicine and public health. Developing countries are more prone to having lower healthy life expectancies due to less financial support for government healthcare programs.')
+st.plotly_chart(fig)
 
 st.header('Violin Plots')
 
 fig = px.violin(wh_df21, x='Regional indicator', y="Logged GDP per capita", title="Regional indicator vs. GDP per capita")
+st.subheader('Regional Indicator and GDP')
 st.write('The graph below represents the GDP trend in regions across the globe. According to the graph, we can see that Western Europe and the North America ANZ are consistently the most happy. The middle east on the other hand has a a wide variety of different happiness levels with subsaharan Africa having a consistently high amount of unhappiness.  ')
 st.write('Violin Plot GDP and Regional Indicator')
 st.plotly_chart(fig)
 
 fig = px.violin(wh_df21, x='Regional indicator', y="Perceptions of corruption", title="Regional indicator vs. Perceptions of corruption")
+st.subheader('Regional Indicator and Corruption')
 st.write('The graph below displays perceptions of corruption in different areas. WesternEurope has a wide range of perceptions along with North America. The areas in which people feel most secure ')
 st.write('Violin Plot corruption and Regional Indicator')
 st.plotly_chart(fig)
 
 fig = px.violin(wh_df21, x='Regional indicator', y="Social support", title="Regional indicator vs. Social support")
-st.subheader('Hi')
+st.subheader('Regional Indicator and Social Support')
 st.write('There is not a significant difference in the trend shown here ')
 st.write('Violin Plot Regional Indicator vs. Social Support')
 st.plotly_chart(fig)
