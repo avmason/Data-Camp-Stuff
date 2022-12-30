@@ -13,7 +13,7 @@ pd.set_option('display.max_colwidth', None)
 
 st.title('Data Science World Happiness EDA')
 st.header('Target')
-st.write('The target of this EDA is to draw conclusions about the factors that lead to hapiness in various regions across the globe. The information and visualizations provided are based on the "World Hapiness Data Set" as of 2021.  This will be done through the use of comprehensive charts, tables, and maps that will paint an overall picture of the given dataset.')
+st.write('The target of this EDA is to draw conclusions about the factors that lead to hapiness in various regions across the globe. The information and visualizations provided are based on the "World Hapiness Data Set" as of 2021.  This will be done through the use of comprehensive charts, tables, and maps that will paint an overall picture of the given data set.')
 # Data Exploration
 
 
