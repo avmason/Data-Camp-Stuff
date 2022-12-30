@@ -187,7 +187,7 @@ fig = px.choropleth(wh_df21,locations = 'Country name',
                    locationmode='country names', color= 'Ladder score')
 fig.update_layout(title = "World Happiness")
 st.subheader('World Happiness Map')
-st.write('Countries with the highest ladder score are generally found on three continents: North America, Europe, and ANZ (Australia-New Zealand). Countries with the lowest ladder score are generally found on Africa, while countries with a moderate ladder score are generally found on Asia and South Africa.')
+st.write('Countries with the highest ladder score are generally found on three continents: North America, Europe, and ANZ (Australia-New Zealand). Countries with the lowest ladder score are generally found on Africa, while countries with a low to moderate ladder score are generally found on Asia and Africa.')
 fig.update_layout(width=1000,height=800)
 st.plotly_chart(fig)
 
