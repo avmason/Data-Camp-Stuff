@@ -86,16 +86,6 @@ st.write('There is no clear linear correlation between freedom to make life choi
 
 st.plotly_chart(fig)
 
-st.header('Correlation Heatmap')
-col1, col2, col3 = st.columns([1,6,1])
-
-fig = px.imshow(wh_df21[wh_df21.columns[wh_df21.columns != 'Ladder score in Dystopia']].corr(), text_auto=True)
-st.write('An important column to focus on is the ladder score because ultimately this shows the happiness of a country. It is apparent here that there is a high correlation of happiness between Logged GDP per capita, Social support, Healthy Life Expectancy, and Freedom to make choices as these all have correlations around 0.7. Additionally it can be spotted how generosity stand in the lowest values with a score of -0.017')
-fig.update_layout(width=1000,height=800)
-st.plotly_chart(fig)
-
-
-st.header('')
 
 #scatter plot gdp vs. life expectancy
 st.write('GDP vs. Life Expectancy')
@@ -135,6 +125,16 @@ fig = px.scatter_matrix(numerical_wh_df21, color='Healthy life expectancy')
 st.write('Scatter Matrix of GDP, Life Expectancy, and Ladder Score')
 st.write('There is a positive trend for all the graphs, indicating that Healthy life expectancy, Ladder score, and Logged GDP per capita depend on one another.')
 st.plotly_chart(fig)
+
+st.header('Correlation Heatmap')
+
+fig = px.imshow(wh_df21[wh_df21.columns[wh_df21.columns != 'Ladder score in Dystopia']].corr(), text_auto=True)
+st.write('An important column to focus on is the ladder score because ultimately this shows the happiness of a country. It is apparent here that there is a high correlation of happiness between Logged GDP per capita, Social support, Healthy Life Expectancy, and Freedom to make choices as these all have correlations around 0.7. Additionally it can be spotted how generosity stand in the lowest values with a score of -0.017')
+fig.update_layout(width=1000,height=800)
+st.plotly_chart(fig)
+
+
+st.header('')
 
 
 st.header('Bar Graphs')
