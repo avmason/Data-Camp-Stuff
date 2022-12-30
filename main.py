@@ -48,12 +48,6 @@ missing_df = (100*wh_df21.isnull().sum()/len(wh_df21)).to_frame()
 missing_df.columns = ['percentage missing']
 missing_df.sort_values(by = 'percentage missing')
 
-# st.header('Exploring Correlation')
-# df_corr = df.corr() # Generate correlation matrix
-# x = list(df_corr.columns)
-# y = list(df_corr.index)
-# z = np.array(df_corr)
-
 st.header('Regional Map')
 fig = px.choropleth(wh_df21,locations = 'Country name',
                    locationmode='country names', color= 'Regional indicator')
@@ -64,7 +58,7 @@ st.plotly_chart(fig)
 st.header('Scatter Plots')
 
 # Healthy Life Expectancy vs. Ladder Score
-st.write('Healthy Life Expectancy vs. Ladder Score')
+st.subheader('Healthy Life Expectancy vs. Ladder Score')
 st.write('This scatterplot visualization shows positive, medium/strong correlation. In general, the higher the healthy life expectancy, the higher the ladder score & the happier the general country is. However, there are a few of outliers where there is a high healthy life expectancy but a relatively lower ladder score.')
 fig_hle_vs_ls = px.scatter(wh_df21, x = 'Healthy life expectancy', y = 'Ladder score', color = 'Country name', title = 'Healthy Life Expectancy vs. Ladder Score')
 val_x = 'Healthy life expectancy'
@@ -81,14 +75,14 @@ st.plotly_chart(fig_hle_vs_ls)
 
 # freedom to make life choices vs. perceptions of corruption
 fig = px.scatter(wh_df21, x="Freedom to make life choices", y="Perceptions of corruption", color="Country name", title="Freedom vs Corruption by Location & Dystopia", size="Dystopia + residual")
-st.write('Freedom to Make Life Choices vs. Perceptions of Corruption')
+st.subheader('Freedom to Make Life Choices vs. Perceptions of Corruption')
 st.write('There is no clear linear correlation between freedom to make life choices and perceptions of corruption. While regions with low ratings for freedom to make life choices usually have high perceptions of corruption, regions with high ratings for freedom to make life choices have both high and low perceptions of corruption.')
 
 st.plotly_chart(fig)
 
 
 #scatter plot gdp vs. life expectancy
-st.write('GDP vs. Life Expectancy')
+st.subheader('GDP vs. Life Expectancy')
 fig = px.scatter(wh_df21, x="Logged GDP per capita", y="Healthy life expectancy",  color="Regional indicator")
 st.write('Sub-Saharan African countries tend to have a lower healthy life expectancy and logged GDP per capita, whereas Western European countries predominantly have the highest. There is a positive correlation between the healthy life expectancy and logged GDP per capita of regions.')
 val_x = "Logged GDP per capita"
@@ -105,7 +99,7 @@ st.plotly_chart(fig)
 
 #scatter plot gdp vs. generosity         
 fig = px.scatter(wh_df21, x="Logged GDP per capita", y="Generosity", size="Healthy life expectancy", color="Regional indicator")
-st.write('GDP vs. Generosity')
+st.subheader('GDP vs. Generosity')
 st.write('There is no clear trend demonstrated between the generosity and logged GDP per capita of countries.')
 val_x = "Logged GDP per capita"
 val_y = "Generosity"
@@ -122,7 +116,7 @@ st.plotly_chart(fig)
 #scatter matrix
 numerical_wh_df21 = wh_df21[['Logged GDP per capita', 'Healthy life expectancy', 'Ladder score']]
 fig = px.scatter_matrix(numerical_wh_df21, color='Healthy life expectancy')
-st.write('Scatter Matrix of GDP, Life Expectancy, and Ladder Score')
+st.subheader('Scatter Matrix of GDP, Life Expectancy, and Ladder Score')
 st.write('There is a positive trend for all the graphs, indicating that Healthy life expectancy, Ladder score, and Logged GDP per capita depend on one another.')
 st.plotly_chart(fig)
 
