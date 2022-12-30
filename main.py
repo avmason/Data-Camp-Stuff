@@ -195,7 +195,7 @@ fig = px.scatter_geo(wh_df21,locations = 'Country name', size = 'Ladder score',
                    locationmode='country names', color= 'Social support')
 fig.update_layout(title = "Social Support")
 st.subheader('Social Support World Map')
-st.write('Countries with the highest social support are generally found on three continents: Europe, North America, and South America but are also present on Asia and ANZ. Countries with highest social support may also have highest ladder scores.')
+st.write('Countries with the highest social support are generally found on three continents: Europe, North America, and South America but are also present on Asia and ANZ. Countries with highest social support may also have higher ladder scores.')
 fig.update_layout(width=1000,height=800)
 st.plotly_chart(fig)
 
